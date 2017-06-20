@@ -51,5 +51,12 @@ namespace LinqExtended
         {
             return !subSet.Except(set).Any();
         }
+
+
+        public static IEnumerable<T> Fold<T>(this IEnumerable<T> set, Func<T, T, T> func)
+        {
+            return set.Aggregate(func);
+        }
+
     }
 }
